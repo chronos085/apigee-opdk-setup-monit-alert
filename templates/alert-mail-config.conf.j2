@@ -1,0 +1,10 @@
+SET MAILSERVER {{ opdk_smtp_host }} PORT {{ opdk_smtp_port }}
+  USERNAME "{{ opdk_smtp_user }}" PASSWORD "{{ opdk_smtp_password }}"
+  USING SSL, WITH TIMEOUT 15 SECONDS
+
+SET MAIL-FORMAT {
+  from: {{ opdk_alert_mail_from }}
+  subject: Monit Alert -- Service: $SERVICE $EVENT on $HOST
+}
+
+SET ALERT {{ opdk_alert_mail_send }}

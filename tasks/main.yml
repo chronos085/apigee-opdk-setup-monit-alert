@@ -1,0 +1,16 @@
+---
+- name: Construct the mail config file
+    become: yes
+    template:
+      src: 'alert-mail-config.conf.j2'
+      dest: "{{ target_mail_config_file_path }}"
+      mode: 777
+      owner: "{{ opdk_user_name }}"
+      group: "{{ opdk_group_name }}"
+
+#- name: Add mail send alert
+#  become: yes
+#  lineinfile:
+#    path: /opt/apigee/data/apigee-monit/alert-mail-config.conf
+#    line: SET ALERT {{ opdk_alert_mail_send }}
+#    create: yes
