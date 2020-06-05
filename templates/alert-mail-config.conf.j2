@@ -1,5 +1,5 @@
 SET MAILSERVER {{ opdk_smtp_host }} PORT {{ opdk_smtp_port }}
-  USERNAME "{{ opdk_smtp_user }}" PASSWORD "{{ opdk_smtp_password }}"
+  USERNAME "{{ opdk_smtp_user }}" {% if opdk_smtp_password is defined and opdk_smtp_password | trim | length > 0 %}PASSWORD "{{ opdk_smtp_password }}"{% endif %}
   USING SSL, WITH TIMEOUT 15 SECONDS
 
 SET MAIL-FORMAT {
