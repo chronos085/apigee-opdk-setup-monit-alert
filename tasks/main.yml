@@ -1,4 +1,14 @@
 ---
+- name: Construct the Edge mail-config file name
+  set_fact:
+    cacheable: yes
+    alert_file_name: "edge-alert-mail-config.conf"
+
+- name: Construct the Target Edge mail-config file Folder Path
+  set_fact:
+    cacheable: yes
+    target_mail_config_file_path: "{{ opdk_resources_path }}/{{ alert_file_name }}"
+
 - name: Construct the mail config file
     become: yes
     template:
@@ -8,9 +18,15 @@
       owner: "{{ opdk_user_name }}"
       group: "{{ opdk_group_name }}"
 
-#- name: Add mail send alert
-#  become: yes
-#  lineinfile:
-#    path: /opt/apigee/data/apigee-monit/alert-mail-config.conf
-#    line: SET ALERT {{ opdk_alert_mail_send }}
-#    create: yes
+#- name: Remove local config file
+#    file:
+#      path: "{{ local_mail_config_file_path }}"
+#      state: absent
+#    delegate_to: 127.0.0.1
+
+#  - name: Download a copy of the config file
+#    become: yes
+#    fetch:
+#      src: "{{ target_mail_config_file_path }}"
+#      dest: "{{ local_mail_config_file_path }}"
+#      flat: "yes"

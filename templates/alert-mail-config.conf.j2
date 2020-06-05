@@ -7,4 +7,31 @@ SET MAIL-FORMAT {
   subject: Monit Alert -- Service: $SERVICE $EVENT on $HOST
 }
 
-SET ALERT {{ opdk_alert_mail_send }}
+SET ALERT {{ opdk_alert_mail_send_1 }}
+{% if opdk_alert_mail_send_2 is defined and opdk_alert_mail_send_2 | trim | length > 0 %}
+SET ALERT {{ opdk_alert_mail_send_2 }}
+{% endif %}
+{% if opdk_alert_mail_send_3 is defined and opdk_alert_mail_send_3 | trim | length > 0 %}
+SET ALERT {{ opdk_alert_mail_send_3 }}
+{% endif %}
+{% if opdk_alert_mail_send_4 is defined and opdk_alert_mail_send_4 | trim | length > 0 %}
+SET ALERT {{ opdk_alert_mail_send_4 }}
+{% endif %}
+{% if opdk_alert_mail_send_5 is defined and opdk_alert_mail_send_5 | trim | length > 0 %}
+SET ALERT {{ opdk_alert_mail_send_5 }}
+{% endif %}
+{% if opdk_alert_mail_send_6 is defined and opdk_alert_mail_send_6 | trim | length > 0 %}
+SET ALERT {{ opdk_alert_mail_send_6 }}
+{% endif %}
+{% if opdk_alert_mail_send_7 is defined and opdk_alert_mail_send_7 | trim | length > 0 %}
+SET ALERT {{ opdk_alert_mail_send_7 }}
+{% endif %}
+{% if opdk_alert_mail_send_8 is defined and opdk_alert_mail_send_8 | trim | length > 0 %}
+SET ALERT {{ opdk_alert_mail_send_8 }}
+{% endif %}
+{% if opdk_alert_mail_send_9 is defined and opdk_alert_mail_send_9 | trim | length > 0 %}
+SET ALERT {{ opdk_alert_mail_send_9 }}
+{% endif %}
+{% if opdk_alert_mail_send_10 is defined and opdk_alert_mail_send_10 | trim | length > 0 %}
+SET ALERT {{ opdk_alert_mail_send_10 }}
+{% endif %}
