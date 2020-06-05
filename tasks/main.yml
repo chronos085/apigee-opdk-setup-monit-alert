@@ -40,14 +40,14 @@
     group: "{{ opdk_group_name }}"
 
 - name: Remove local config file
-    file:
-      path: "{{ local_mail_config_file_path }}"
-      state: absent
-    delegate_to: 127.0.0.1
+  file:
+    path: "{{ local_mail_config_file_path }}"
+    state: absent
+  delegate_to: 127.0.0.1
 
-  - name: Download a copy of the config file
-    become: yes
-    fetch:
-      src: "{{ target_mail_config_file_path }}"
-      dest: "{{ local_mail_config_file_path }}"
-      flat: "yes"
+- name: Download a copy of the config file
+  become: yes
+  fetch:
+    src: "{{ target_mail_config_file_path }}"
+    dest: "{{ local_mail_config_file_path }}"
+    flat: "yes"
