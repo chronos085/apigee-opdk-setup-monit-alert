@@ -2,5 +2,5 @@
 # defaults file for apigee-opdk-setup-monit-alert
 opdk_user_name: 'apigee'
 opdk_group_name: 'apigee'
-target_mail_config_file_path: "/opt/apigee/data/apigee-monit/alert-mail-config.conf"
+opdk_alert_mail_resources_path: "/opt/apigee/data/apigee-monit"
 

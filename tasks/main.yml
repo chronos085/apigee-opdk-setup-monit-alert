@@ -2,12 +2,12 @@
 - name: Construct the Edge mail-config file name
   set_fact:
     cacheable: yes
-    alert_file_name: "edge-alert-mail-config.conf"
+    alert_file_name: "alert-mail-config.conf"
 
 - name: Construct the Target Edge mail-config file Folder Path
   set_fact:
     cacheable: yes
-    target_mail_config_file_path: "{{ opdk_resources_path }}/{{ alert_file_name }}"
+    target_mail_config_file_path: "{{ opdk_alert_mail_resources_path }}/{{ alert_file_name }}"
 
 - name: Assert Permissions are Correct
   become: yes
