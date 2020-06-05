@@ -10,7 +10,6 @@
     target_mail_config_file_path: "{{ opdk_resources_path }}/{{ alert_file_name }}"
 
 - name: Construct the mail config file
-    become: yes
     template:
       src: 'alert-mail-config.conf.j2'
       dest: "{{ target_mail_config_file_path }}"
