@@ -1,31 +1,31 @@
 ---
-- name: Construct the Edge mail-config file name
-  set_fact:
-    cacheable: yes
-    alert_file_name: "edge-alert-mail-config.conf"
+#- name: Construct the Edge mail-config file name
+#  set_fact:
+#    cacheable: yes
+#    alert_file_name: "edge-alert-mail-config.conf"
 
-- name: Construct the Target Edge mail-config file Folder Path
-  set_fact:
-    cacheable: yes
-    target_mail_config_file_path: "{{ opdk_resources_path }}/{{ alert_file_name }}"
+#- name: Construct the Target Edge mail-config file Folder Path
+#  set_fact:
+#    cacheable: yes
+#    target_mail_config_file_path: "{{ opdk_resources_path }}/{{ alert_file_name }}"
 
-- name: Assert Permissions are Correct
-  become: yes
-  file:
-    path: "{{ target_mail_config_file_path | dirname }}"
-    recurse: yes
-    mode: "777"
-    owner: '{{ opdk_user_name }}'
-    group: '{{ opdk_group_name }}'
-    
-#- name: Construct the mail config file
+#- name: Assert Permissions are Correct
 #  become: yes
-#  template:
-#    src: 'alert-mail-config.conf.j2'
-#    dest: "{{ target_mail_config_file_path }}"
-#    mode: 777
-#    owner: "{{ opdk_user_name }}"
-#    group: "{{ opdk_group_name }}"
+#  file:
+#    path: "{{ target_mail_config_file_path | dirname }}"
+#    recurse: yes
+#    mode: "777"
+#    owner: '{{ opdk_user_name }}'
+#    group: '{{ opdk_group_name }}'
+    
+- name: Construct the mail config file
+  become: yes
+  template:
+    src: 'alert-mail-config.conf.j2'
+    dest: "{{ target_mail_config_file_path }}"
+    mode: 777
+    owner: "{{ opdk_user_name }}"
+    group: "{{ opdk_group_name }}"
 
 #- name: Remove local config file
 #    file:
